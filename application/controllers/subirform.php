@@ -15,7 +15,7 @@ class Flota extends CI_Controller {
 		$flotas = $this->Flota->toList();
 		$data = array("flotas"=>$flotas);
 		$this->load->view('inc_head');
-		$this->load->view($this->session->userdata('menu'));
+		$this->load->view('inc_menu');
 		$this->load->view('inc_flota',$data);
 		$this->load->view('inc_footer');
 	}
@@ -24,7 +24,7 @@ class Flota extends CI_Controller {
 		$tipos = $this->Flota->obtener("tipo",false,false);
 		$data = array("choferes"=>$choferes,"tipos"=>$tipos);
 		$this->load->view('inc_head');
-		$this->load->view($this->session->userdata('menu'));
+		$this->load->view('inc_menu');
 		$this->load->view('bus/crear',$data);
 		$this->load->view('inc_footer');
 	}
@@ -75,7 +75,7 @@ class Flota extends CI_Controller {
 		$tipos = $this->Flota->obtener("tipo",false,false);
 		$data = array("choferes"=>$choferes,"tipos"=>$tipos,"flota"=>$flota);
 		$this->load->view('inc_head');
-		$this->load->view($this->session->userdata('menu'));
+		$this->load->view('inc_menu');
 		$this->load->view('bus/editar',$data);
 		$this->load->view('inc_footer');
 	}
@@ -97,38 +97,10 @@ class Flota extends CI_Controller {
 	}
 	public function subirimagen()
 	{
-		$data['idimagen']=$_POST['idbuses'];
+		$data['idimagen']=$_POST['idimagen'];
 
-		$this->load->view('inc_head');
-		$this->load->view($this->session->userdata('menu'));
+		$this->load->view('inc_head.php');
 		$this->load->view('subirform',$data);
-		$this->load->view('inc_footer');
-	}
-	public function subir()
-	{
-		$idimagen=$_POST['idbuses'];
-		$nombrearchivo=$idimagen.".jpg";
-
-		//ruta donde se guardan los ficheros
-		$config['upload_path']='./uploads/buses/';
-		//config nombre del archivo
-		$config['file_name']=$nombrearchivo;
-		//renplazar los archivos
-		$direccion="./uploads/buses/".$nombrearchivo;
-		unlink($direccion);
-		//tipos de archivos permitidos
-		$config['allowed_types']='jpg';
-		$this->load->library('upload',$config);
-		if(!$this->upload->do_upload())
-		{
-			$data['error']=$this->upload->display_errors();
-		}
-		else
-		{
-			$data['imagen']=$nombrearchivo;
-			$this->Flota->modificar("flota",$data,array('id'=>$idimagen));
-			$this->upload->data();
-		}
-		redirect('flota/','refresh');
+		$this->load->view('inc_footer.php');
 	}
 }

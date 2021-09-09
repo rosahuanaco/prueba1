@@ -16,7 +16,7 @@ class Publicacion extends CI_Controller {
 		$publicaciones = $this->Publicacion->toList();
 		$data = array("publicaciones"=>$publicaciones);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
+		$this->load->view($this->session->userdata('menu'));
 		$this->load->view('inc_principal',$data);
 		$this->load->view('inc_footer');
 	}
@@ -25,7 +25,7 @@ class Publicacion extends CI_Controller {
 		$flotas = $this->Publicacion->obtener("flota",array("estado"=>"Activo"),false);
 		$data = array("lugares"=>$lugares,"flotas"=>$flotas);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
+		$this->load->view($this->session->userdata('menu'));
 		$this->load->view('publicacion/crear',$data);
 		$this->load->view('inc_footer');
 	}
@@ -91,7 +91,7 @@ class Publicacion extends CI_Controller {
 		$flotas = $this->Publicacion->obtener("flota",array("estado"=>"Activo"),false);
 		$data = array("lugares"=>$lugares,"flotas"=>$flotas,"publicacion"=>$publicacion);
 		$this->load->view('inc_head');
-		$this->load->view('inc_menu');
+		$this->load->view($this->session->userdata('menu'));
 		$this->load->view('publicacion/editar',$data);
 		$this->load->view('inc_footer');
 	}

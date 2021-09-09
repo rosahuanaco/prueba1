@@ -23,7 +23,7 @@
           <img src="<?=base_url()?>adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?=$this->session->userdata('nombreCompleto')?></a>
+          <a href="#" class="d-block">Rosa Huanaco Apaza</a>
         </div>
       </div>
 
@@ -54,31 +54,7 @@
                 </a>
               </li>
             </ul>
-          </li> 
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Buses
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=site_url('flota')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=site_url('flota/crear')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear</p>
-                </a>
-              </li>
-            </ul>
-          </li> 
+          </li>
 
         </ul>
       </nav>

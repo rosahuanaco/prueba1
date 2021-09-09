@@ -12,7 +12,7 @@ class Flota_Model extends Base_Model
     }
     
     public function toList(){
-        $this->db->select("f.id,f.placa, ch.nombre_completo as chofer,t.nombre as tipo,f.comodidad,f.filas,f.pisos,f.cantidad,f.estado");
+        $this->db->select("f.id,f.placa, ch.nombre_completo as chofer,t.nombre as tipo,f.comodidad,f.filas,f.pisos,f.cantidad,f.estado,f.imagen");
         $this->db->from("flota f");
         $this->db->join("chofer ch","ch.id=f.chofer");
         $this->db->join("tipo t", "t.id=f.tipo");

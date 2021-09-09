@@ -1,4 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -6,6 +7,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Viajes</h1>
+
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,6 +27,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Lista de Viajes</h3>
+
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -49,6 +52,7 @@
                         <td><?=$publicacion->precio?></td>
                         <td><?=$publicacion->estado?></td>
                         <td><?=$publicacion->fecha_salida?></td>
+                        
                         <td> 
                             <a class="edit" href="<?=site_url('publicacion/editar')?>/<?=$publicacion->id?>" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="deletePublicacion" data-id="<?=$publicacion->id?>" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>                        
